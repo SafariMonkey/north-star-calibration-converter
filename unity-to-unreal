@@ -1,0 +1,107 @@
+#!/usr/bin/env python3
+
+import sys
+import json
+from collections import defaultdict
+
+
+def transform(name, unity):
+    unreal = {"Name": name}
+    for eye in ["leftEye", "rightEye"]:
+        unity_eye = unity[eye]
+        unreal[eye] = {
+            "ellipseMinorAxis": unity_eye["ellipseMinorAxis"],
+            "ellipseMajorAxis": unity_eye["ellipseMajorAxis"],
+            "screenForward": map_position(**unity_eye["screenForward"]),
+            "screenPosition": map_position(**unity_eye["screenPosition"]),
+            "eyePosition": map_position(**unity_eye["eyePosition"]),
+            "eyeRotation": swap_axes_4(**unity_eye["eyeRotation"]),
+            "cameraProjection": swap_axes_4(**unity_eye["cameraProjection"]),
+            "sphereToWorldSpace": map_matrix(unity_eye["sphereToWorldSpace"]),
+            "worldToScreenSpace": map_matrix(unity_eye["worldToScreenSpace"]),
+        }
+
+    unity_tracker = unity["leapTracker"]
+    unreal["leapTracker"] = {
+        "name": unity_tracker["name"],
+        "serial": unity_tracker["serial"],
+        "localPose": {
+            "position": map_position(**unity_tracker["localPose"]["position"]),
+            "rotation": swap_axes_4(**unity_tracker["localPose"]["rotation"]),
+        }
+    }
+
+    return [unreal]
+
+
+def swap_axes_3(x, y, z):
+    return {
+        "X": z,
+        "Y": x,
+        "Z": y,
+    }
+
+
+def map_position(x, y, z):
+    return {
+        axis: value * 100
+        for axis, value
+        in swap_axes_3(x, y, z).items()
+    }
+
+
+def swap_axes_4(x, y, z, w):
+    return {**swap_axes_3(x, y, z), "W": w}
+
+
+def map_rotation(x, y, z, w):
+    return swap_axes_3(x, y, z, w)
+
+
+def map_matrix(matrix):
+    def map_axis(axis):
+        number_to_axis = {
+            "0": "x",
+            "1": "y",
+            "2": "z",
+            "3": "w",
+        }
+        unity_to_unreal = {
+            "x": "Y",
+            "y": "Z",
+            "z": "X",
+            "w": "W",
+        }
+        return unity_to_unreal[number_to_axis[axis]]
+    result = defaultdict(dict)
+    for cell, value in matrix.items():
+        prefix, unity_row, unity_col = tuple(cell)
+        assert prefix == "e"
+        unreal_row = map_axis(unity_row)
+        unreal_col = map_axis(unity_col)
+        result[unreal_row+"Plane"][unreal_col] = value
+
+    return result    
+
+
+
+def main():
+    if len(sys.argv) < 2:
+        error("Must supply the input filename")
+    if len(sys.argv) > 2:
+        error("Too many arguments")
+
+    unity_filename = sys.argv[1]
+    with open(unity_filename, 'r') as unity_file:
+        unity = json.load(unity_file)
+        unreal = transform(unity_filename, unity)
+        print(json.dumps(unreal, indent=4))
+
+
+def error(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
+    sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

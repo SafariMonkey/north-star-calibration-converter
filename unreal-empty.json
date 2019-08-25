@@ -1,0 +1,224 @@
+[
+	{
+		"Name": "NewRow",
+		"leftEye":
+		{
+			"ellipseMinorAxis": 0,
+			"ellipseMajorAxis": 0,
+			"screenForward":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"screenPosition":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"eyePosition":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"eyeRotation":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0,
+				"W": 0
+			},
+			"cameraProjection":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0,
+				"W": 0
+			},
+			"sphereToWorldSpace":
+			{
+				"XPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"YPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"ZPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"WPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				}
+			},
+			"worldToSphereSpace":
+			{
+				"XPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"YPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"ZPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"WPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				}
+			}
+		},
+		"rightEye":
+		{
+			"ellipseMinorAxis": 0,
+			"ellipseMajorAxis": 0,
+			"screenForward":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"screenPosition":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"eyePosition":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"eyeRotation":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0,
+				"W": 0
+			},
+			"cameraProjection":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0,
+				"W": 0
+			},
+			"sphereToWorldSpace":
+			{
+				"XPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"YPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"ZPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"WPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				}
+			},
+			"worldToSphereSpace":
+			{
+				"XPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"YPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"ZPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"WPlane":
+				{
+					"W": 0,
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				}
+			}
+		},
+		"leapTracker":
+		{
+			"name": "None",
+			"serial": "None",
+			"localPose":
+			{
+				"position":
+				{
+					"X": 0,
+					"Y": 0,
+					"Z": 0
+				},
+				"rotation":
+				{
+					"X": 0,
+					"Y": 0,
+					"Z": 0,
+					"W": 0
+				}
+			}
+		}
+	}
+]
